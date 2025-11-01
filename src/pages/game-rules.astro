@@ -1,0 +1,163 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const gameRules = [
+  {
+    title: "Blackjack: Beat the Dealer",
+    description: "Blackjack is the ultimate card game of skill and luck. Aim to get a hand value closer to 21 than the dealer without busting.",
+    rules: [
+      "Card Values: Number cards = face value; Face cards (J, Q, K) = 10; Ace = 1 or 11",
+      "Gameplay: You and the dealer each receive two cards. You can choose to Hit or Stand",
+      "Objective: Get as close to 21 as possible without going over (busting)",
+      "Dealer must hit until they reach at least 17"
+    ],
+    icon: "fas fa-clipboard-list"
+  },
+  {
+    title: "Roulette: The Wheel of Fortune",
+    description: "Spin the wheel and place bets on where the ball will land. Choose from numbers, colors, or combinations.",
+    rules: [
+      "Place bets on a table before spinning the wheel",
+      "Numbers range from 0 to 36 (00 is also possible)",
+      "Red and black numbers alternate, with green 0 and 00",
+      "Payouts vary based on bet type: Straight up (35:1), Red/Black (1:1), etc."
+    ],
+    icon: "fas fa-dice"
+  },
+  {
+    title: "Slots: Spin to Win",
+    description: "Match symbols across paylines to win big. Each spin is independent and based on chance.",
+    rules: [
+      "Spin the reels to align matching symbols",
+      "Different symbol combinations yield different payouts",
+      "Paylines can be activated to increase winning chances",
+      "Bonus rounds and free spins are often included"
+    ],
+    icon: "fas fa-gem"
+  },
+  {
+    title: "Poker: The Art of Strategy",
+    description: "Play against other players using your hand and strategic betting to win the pot.",
+    rules: [
+      "Each player is dealt 2 cards face down",
+      "Players place bets in rounds (pre-flop, flop, turn, river)",
+      "The best 5-card hand wins the pot",
+      "Betting rounds include calls, raises, and folds"
+    ],
+    icon: "fas fa-cards"
+  }
+];
+
+const featuredGames = [
+  { name: "Blackjack", color: "bg-red-600" },
+  { name: "Roulette", color: "bg-blue-600" },
+  { name: "Slots", color: "bg-green-600" },
+  { name: "Poker", color: "bg-purple-600" }
+];
+---
+
+<Layout title="Game Rules | Spin & Learn Academy" description="Dive into the essential rules of popular casino games with our bold, energetic guide. Master blackjack, roulette, slots, and more to build confidence and strategy at Spin & Learn Academy.">
+  <!-- Hero Section -->
+  <div class="relative bg-gradient-to-r from-[#b71c1c] to-[#ff6b35] py-24 overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+CiAgPHBhdGggZD0iTTAgMGg2MHY2MEgweiIgZmlsbD0ibm9uZSIvPgogIDxwYXRoIGQ9Ik0zMiAzMmM0LjQxOCAwIDggMy41ODIgOCA4czMuNTgyIDgtOCA4LTgtMy41ODItOC04IDMuNTgyLTggOC04eiIgZmlsbD0iI2ZmZiIvPgo8L3N2Zz4=')]"></div>
+    </div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 animate-pulse">Game Rules: Master the Casino with Confidence</h1>
+        <p class="text-xl text-white/90 mb-8">Dive into the essential rules of popular casino games with our bold, energetic guide</p>
+        <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4 max-w-md mx-auto">
+          <p class="text-white font-bold text-lg">Master Casino Fundamentals with Confidence and Strategy</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Featured Games Section -->
+  <section class="py-16 bg-gradient-to-b from-white to-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-[#b71c1c] mb-12">Popular Casino Games</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        {featuredGames.map((game, index) => (
+          <div class={`rounded-xl shadow-lg p-6 text-center transform transition duration-300 hover:scale-105 ${game.color} text-white`}>
+            <div class="text-4xl mb-4">
+              <i class="fas fa-dice"></i>
+            </div>
+            <h3 class="text-xl font-bold">{game.name}</h3>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Rule Cards Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-center mb-12">
+        <div class="bg-[#ff6b35] text-white px-6 py-3 rounded-full font-bold text-lg shadow-lg">
+          No Fluff, Just Action-Packed Insights!
+        </div>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-8">
+        {gameRules.map((game, index) => (
+          <div key={index} class="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-xl overflow-hidden border-l-8 border-[#b71c1c] transform transition duration-300 hover:shadow-2xl">
+            <div class="p-6">
+              <div class="flex items-start mb-4">
+                <div class="bg-[#b71c1c] text-white p-3 rounded-lg mr-4">
+                  <i class={game.icon}></i>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-bold text-[#b71c1c]">{game.title}</h3>
+                  <p class="text-gray-600 mt-2">{game.description}</p>
+                </div>
+              </div>
+              
+              <div class="mt-4 space-y-3">
+                {game.rules.map((rule, ruleIndex) => (
+                  <div key={ruleIndex} class="flex items-start">
+                    <div class="bg-[#ff6b35] rounded-full p-1 mt-1 mr-3">
+                      <i class="fas fa-chevron-right text-white text-xs"></i>
+                    </div>
+                    <p class="text-gray-700">{rule}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gradient-to-r from-[#b71c1c] to-[#ff6b35]">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Master Casino Strategy?</h2>
+      <p class="text-xl text-white/90 max-w-2xl mx-auto mb-10">Join thousands of students and start your journey to casino mastery today</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <button class="bg-white text-[#b71c1c] font-bold px-8 py-4 rounded-full text-lg shadow-lg hover:bg-gray-100 transition duration-300 transform hover:scale-105">
+          Start Learning Now
+        </button>
+        <button class="bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-full text-lg hover:bg-white/10 transition duration-300">
+          Explore Courses
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-4 text-center">
+      <h3 class="text-2xl font-bold mb-4">Spin & Learn Academy</h3>
+      <p class="text-gray-400 max-w-2xl mx-auto mb-6">Mastering casino fundamentals with confidence and strategy</p>
+      <div class="flex justify-center space-x-6 mb-8">
+        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-youtube"></i></a>
+      </div>
+      <p class="text-gray-500 text-sm">© {new Date().getFullYear()} Spin & Learn Academy. All rights reserved.</p>
+    </div>
+  </footer>
+</Layout>

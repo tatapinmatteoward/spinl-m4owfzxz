@@ -1,0 +1,224 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const features = [
+  { 
+    icon: 'fas fa-dice', 
+    title: 'Core Games', 
+    text: 'Learn essential rules and gameplay mechanics for slots, blackjack, and roulette.' 
+  },
+  { 
+    icon: 'fas fa-coins', 
+    title: 'Smart Strategies', 
+    text: 'Master betting strategies that maximize your winning potential while minimizing risk.' 
+  },
+  { 
+    icon: 'fas fa-ban', 
+    title: 'Common Pitfalls', 
+    text: 'Avoid costly mistakes that can derail your casino journey before it begins.' 
+  }
+];
+
+const games = [
+  { 
+    name: 'Slots', 
+    description: 'Spin the reels and match symbols for big wins. Perfect for beginners!',
+    color: 'from-purple-600 to-indigo-600'
+  },
+  { 
+    name: 'Blackjack', 
+    description: 'Beat the dealer with 21. Learn basic strategy to boost your odds.',
+    color: 'from-red-600 to-orange-500'
+  },
+  { 
+    name: 'Roulette', 
+    description: 'Place bets on numbers or colors. Simple rules, endless excitement!',
+    color: 'from-blue-600 to-teal-500'
+  }
+];
+
+const tips = [
+  {
+    title: 'Start Small',
+    description: 'Begin with small bets to understand game mechanics without risking too much.'
+  },
+  {
+    title: 'Set Limits',
+    description: 'Establish win and loss limits before you start playing.'
+  },
+  {
+    title: 'Take Breaks',
+    description: 'Rest periodically to avoid fatigue and maintain clear decision-making.'
+  }
+];
+---
+
+<Layout title="Beginner's Guide to Casino Fundamentals" description="Dive into the exciting world of casino gaming with our beginner's guide. Learn essential rules, strategies, and tips to build confidence at Spin & Learn Academy.">
+  <!-- Hero Section -->
+  <div class="relative bg-gradient-to-r from-[#b71c1c] to-[#ff6b35] py-24 overflow-hidden">
+    <div class="absolute inset-0 bg-black opacity-10"></div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+          Beginner's Guide to Casino Fundamentals
+        </h1>
+        <p class="text-xl text-white/90 mb-8 max-w-2xl">
+          Master Casino Fundamentals with Confidence and Strategy
+        </p>
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 inline-block">
+          <p class="text-white font-medium">
+            <i class="fas fa-star text-yellow-300 mr-2"></i>
+            Dive into the exciting world of casino gaming with our beginner's guide
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent"></div>
+  </div>
+
+  <!-- Why Start Section -->
+  <section class="py-16 bg-gradient-to-b from-white to-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          Why Start with Casino Basics?
+        </h2>
+        <div class="w-24 h-1 bg-[#ff6b35] mx-auto"></div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        {features.map((feature, index) => (
+          <div 
+            class="bg-white rounded-2xl shadow-xl p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100"
+            style="border-top: 4px solid #b71c1c;"
+          >
+            <div class="w-16 h-16 rounded-full bg-[#b71c1c]/10 flex items-center justify-center mb-6">
+              <i class={`${feature.icon} text-2xl text-[#b71c1c]`}></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-3">{feature.title}</h3>
+            <p class="text-gray-600 leading-relaxed">{feature.text}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-16 bg-gradient-to-r from-[#b71c1c] to-[#ff6b35] rounded-3xl p-8 md:p-12 text-center">
+        <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">No more second-guessing—gain the edge you need!</h3>
+        <p class="text-white/90 max-w-2xl mx-auto">
+          Our bold, energetic approach breaks down complex casino concepts into bite-sized, fun lessons designed for beginners.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Essential Games Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          Essential Casino Games for Newbies
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Start simple and build your confidence with these beginner-friendly games
+        </p>
+        <div class="w-24 h-1 bg-[#ff6b35] mx-auto mt-4"></div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        {games.map((game, index) => (
+          <div 
+            class="group relative rounded-2xl overflow-hidden shadow-xl transform transition-all duration-300 hover:scale-105"
+          >
+            <div class={`h-48 bg-gradient-to-r ${game.color} flex items-center justify-center`}>
+              <div class="text-white text-center p-6">
+                <h3 class="text-3xl font-bold mb-2">{game.name}</h3>
+                <p class="text-white/90">{game.description}</p>
+              </div>
+            </div>
+            <div class="bg-white p-6">
+              <div class="flex justify-between items-center">
+                <span class="font-bold text-gray-800">Beginner Friendly</span>
+                <span class="px-3 py-1 bg-[#ff6b35] text-white text-sm rounded-full">New</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Tips Section -->
+  <section class="py-16 bg-gradient-to-br from-[#b71c1c]/5 to-[#ff6b35]/5">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          Smart Tips for New Players
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Practical advice to start your casino journey the right way
+        </p>
+        <div class="w-24 h-1 bg-[#ff6b35] mx-auto mt-4"></div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        {tips.map((tip, index) => (
+          <div 
+            class="bg-white rounded-2xl shadow-lg p-8 border-l-4 border-[#b71c1c] transform transition-all duration-300 hover:shadow-xl"
+          >
+            <div class="w-12 h-12 rounded-full bg-[#b71c1c]/10 flex items-center justify-center mb-6">
+              <span class="text-2xl font-bold text-[#b71c1c]">{index + 1}</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-3">{tip.title}</h3>
+            <p class="text-gray-600">{tip.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gradient-to-r from-[#b71c1c] to-[#ff6b35]">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+        Ready to Master Casino Fundamentals?
+      </h2>
+      <p class="text-xl text-white/90 max-w-2xl mx-auto mb-10">
+        Join Spin & Learn Academy and take your first step toward confident casino gaming
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <button class="bg-white text-[#b71c1c] font-bold py-4 px-8 rounded-full text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg">
+          Start Your Journey
+        </button>
+        <button class="bg-transparent border-2 border-white text-white font-bold py-4 px-8 rounded-full text-lg hover:bg-white/10 transition-all duration-300">
+          Explore Courses
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-4 text-center">
+      <h3 class="text-2xl font-bold mb-4">Spin & Learn Academy</h3>
+      <p class="text-gray-400 max-w-2xl mx-auto">
+        Master Casino Fundamentals with Confidence and Strategy. Your journey to casino expertise starts here.
+      </p>
+      <div class="mt-8 flex justify-center space-x-6">
+        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+      <div class="mt-8 pt-8 border-t border-gray-800 text-gray-500">
+        <p>© {new Date().getFullYear()} Spin & Learn Academy. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</Layout>
